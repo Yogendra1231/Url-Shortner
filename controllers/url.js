@@ -9,11 +9,12 @@ async function handleGenerateurl(req, res){
     const result = URL.create({
         shortId: shortID,
         redirectUrl:body.url,
-        visitedHistory:[]
+        visitedHistory:[],
+        createdBy: req.user._id,
 
     })
 
-    return res.status(200).json({shId : shortID});
+    return res.status(200).render( 'Home',{id : shortID});
 
 }
 
