@@ -15,3 +15,8 @@ A simple Node.js application to shorten long URLs and redirect users to the orig
 - Express.js
 - MongoDB
 - Mongoose
+## 🔐 Authentication
+
+- Users can register and login.
+- Sessions are stored in memory using UUID.
+- Login is required to shorten URLs.
