@@ -19,9 +19,9 @@ async function handleUserSingin(req,res){
     const user = await User.findOne({email,password});
     if(!user)return res.render( 'login' , {error: "not authorise"});
 
-  const sessionId = uuidv4()
-   setUser(sessionId, user);
-   res.cookie('uid', sessionId)
+   
+  const token = setUser(user);
+   res.cookie('uid', token);
    return res.redirect("/");
 }
 

@@ -7,7 +7,7 @@ const URL = require('./models/url')
 const PORT = 8001;
 const {restrictToLoggedinUserOnly,checkAuth } = require("./middleware/auth")
 const staticRoute = require('./routes/staticRoute')
-const userRout = require('./routes/user');
+const userRoute = require('./routes/user');
 const cookieParser = require('cookie-parser');
 mongoose.connect('mongodb://127.0.0.1:27017/url-shortner').then(()=>console.log("mongoose connected")).catch((err)=>console.log("err came to connect with mongoose"));
 
@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use('/url',restrictToLoggedinUserOnly, urlRouter);
 app.use('/',checkAuth,   staticRoute);
-app.use('/user', userRout);
+app.use('/user', userRoute);
 
 app.listen(PORT, ()=> console.log("server is started"));
 

@@ -19,7 +19,7 @@ async function handleGenerateurl(req, res){
 }
 
 async function handleGetAnalytics(req, res){
-    const shortId = req.params.shorId;
+    const shortId = req.params.shortId;
 
     const result = URL.findOne({shortId})
 
